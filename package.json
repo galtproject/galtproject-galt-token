@@ -1,0 +1,37 @@
+{
+  "name": "@galtproject/galt-token",
+  "version": "0.1.0",
+  "description": "",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@galtproject/eslint-config-galt": "git+https://github.com/galtspace/eslint-config-galt.git",
+    "eslint": "^5.12.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^3.6.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "ethlint": "1.2.2",
+    "ganache-core": "2.3.3",
+    "lodash": "^4.17.11",
+    "openzeppelin-solidity": "2.1.2",
+    "prettier": "1.16.1",
+    "p-iteration": "^1.1.7",
+    "truffle": "5.0.2",
+    "typedarray-to-buffer": "^3.1.5",
+    "web3": "1.0.0-beta.37"
+  },
+  "engines": {
+    "node": ">=10.15.0"
+  },
+  "repository": "https://github.com/galtspace/galtproject-galt-token",
+  "scripts": {
+    "eslint": "eslint .",
+    "ethlint": "solium --dir .",
+    "test": "truffle test --network test"
+  },
+  "author": "",
+  "license": "ISC"
+}
