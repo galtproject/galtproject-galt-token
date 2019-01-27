@@ -18,5 +18,5 @@ test:
 benchmark:
 	for file in `ls ./benchmark`; do echo \\n$${file}\\n; ./node_modules/.bin/truffle exec benchmark/$${file} --network test -c; done
 
-deploy-local:
-	rm -rf build && truffle migrate --network local && ./node_modules/.bin/surge ./deployed $$DOMAIN
+deploy:
+	rm -rf build && ./node_modules/.bin/truffle migrate --network local
