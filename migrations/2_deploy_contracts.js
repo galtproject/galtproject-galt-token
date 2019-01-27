@@ -20,16 +20,6 @@ module.exports = async function(deployer, network, accounts) {
     const blockNumber = await web3.eth.getBlockNumber();
     const networkId = await web3.eth.net.getId();
 
-    let commit;
-    // eslint-disable-next-line
-    const rev = fs.readFileSync('.git/HEAD').toString().replace('\n', '');
-    if (rev.indexOf(':') === -1) {
-      commit = rev;
-    } else {
-      // eslint-disable-next-line
-      commit = fs.readFileSync(`.git/${rev.substring(5)}`).toString().replace('\n', '');
-    }
-
     await new Promise(resolve => {
       const deployDirectory = `${__dirname}/../deployed`;
       if (!fs.existsSync(deployDirectory)) {
@@ -44,7 +34,6 @@ module.exports = async function(deployer, network, accounts) {
         JSON.stringify(
           {
             packageVersion,
-            commit,
             networkId,
             blockNumber,
             galtTokenAddress: galtToken.address,
