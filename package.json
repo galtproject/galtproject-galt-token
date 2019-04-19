@@ -5,7 +5,8 @@
   "directories": {
     "test": "test"
   },
-  "dependencies": {},
+  "dependencies": {
+  },
   "devDependencies": {
     "@galtproject/eslint-config-galt": "git+https://github.com/galtspace/eslint-config-galt.git",
     "eslint": "^5.12.1",
@@ -17,11 +18,11 @@
     "ganache-core": "2.3.3",
     "lodash": "^4.17.11",
     "openzeppelin-solidity": "2.1.2",
-    "prettier": "1.16.1",
     "p-iteration": "^1.1.7",
-    "truffle": "5.0.2",
+    "prettier": "1.16.1",
     "typedarray-to-buffer": "^3.1.5",
-    "web3": "1.0.0-beta.37"
+    "web3": "1.0.0-beta.37",
+    "truffle": "^5.0.13"
   },
   "engines": {
     "node": ">=10.15.0"
