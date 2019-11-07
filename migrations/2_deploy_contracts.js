@@ -1,21 +1,27 @@
-const GaltToken = artifacts.require('./GaltToken');
-const Web3 = require('web3');
+const GaltToken = artifacts.require('./XchfToken');
 
 const fs = require('fs');
 const packageVersion = require('../package.json').version;
 
-const web3 = new Web3(GaltToken.web3.currentProvider);
+const { web3 } = GaltToken;
 
-module.exports = async function(deployer, network, accounts) {
+function ether(number) {
+  return web3.utils.toWei(number.toString(), 'ether');
+}
+
+module.exports = async function(deployer, network) {
   if (network === 'test' || network === 'local_test' || network === 'development') {
     console.log('Skipping deployment migration');
     return;
   }
 
-  deployer.then(async () => {
-    const coreTeam = accounts[0];
+  // eslint-disable-next-line import/no-dynamic-require,global-require
+  const globalConfig = require(`@galtproject/deployment-config/static/${network}.js`);
 
-    const galtToken = await GaltToken.new({ from: coreTeam });
+  const { coreMultiSigAddress } = globalConfig;
+
+  deployer.then(async () => {
+    const galtToken = await deployer.deploy(GaltToken, coreMultiSigAddress, ether(42 * 1000 * 1000));
 
     const blockNumber = await web3.eth.getBlockNumber();
     const networkId = await web3.eth.net.getId();
