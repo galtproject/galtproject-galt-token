@@ -5,6 +5,8 @@ const config = {
     goerli: {
       host: '127.0.0.1',
       port: 8545,
+      // 1 gwei
+      gasPrice: 1000000000,
       network_id: '*'
     },
     ganache: {
